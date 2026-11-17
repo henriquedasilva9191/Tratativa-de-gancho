@@ -321,8 +321,13 @@ $$('[data-x]').forEach(b=>b.onclick=()=>{relSel=b.dataset.x;$$('[data-x]').forEa
 
 $('#cp').onclick=()=>{
   const t=$('#tsv');t.select();
-  try{navigator.clipboard.writeText(t.value).catch(()=>document.execCommand('copy'))}catch(e){try{document.execCommand('copy')}catch(_){}}
-  $('#cp').textContent='Copiado';setTimeout(()=>$('#cp').textContent='Copiar para planilha',1500);
+  try{
+    navigator.clipboard.writeText(t.value).catch(()=>document.execCommand('copy'));
+  }catch(e){
+    try{document.execCommand('copy');}catch(_){}
+  }
+  $('#cp').textContent='Copiado';
+  setTimeout(()=>$('#cp').textContent='Copiar para planilha',1500);
 };
 
 $('#clr').onclick=async()=>{
