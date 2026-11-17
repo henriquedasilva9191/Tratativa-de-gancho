@@ -116,8 +116,8 @@ h2{font-size:17px;font-weight:700;color:var(--h);margin:0 0 10px}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // CONFIGURAÇÃO DO SUPABASE
-const SUPABASE_URL = 'SUA_URL_DO_SUPABASE'; // Substitua pela sua URL
-const SUPABASE_ANON_KEY = 'SUA_ANON_KEY_DO_SUPABASE'; // Substitua pela sua Key
+const SUPABASE_URL = 'https://SUA_URL_DO_SUPABASE.supabase.co'; // <--- COLOQUE SUA URL AQUI
+const SUPABASE_ANON_KEY = 'sb_publishable_1OytOp1Lp9Zl0odZQ3jyuQ_qE90z75T'; // Chave Publishable configurada
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -286,10 +286,10 @@ async function run(code){
   render();
 }
 
-function go(){const v=$('#code'].value;$('#code'].value='';run(v);$('#code'].focus()}
+function go(){const v=$('#code').value;$('#code').value='';run(v);$('#code').focus()}
 $('#go').onclick=go;
 $('#code').addEventListener('keydown',e=>{if(e.key==='Enter')go()});
-$$('[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;$$('[data-m]').forEach(x=>x.classList.toggle('on',x===b));$('#code'].focus()});
+$$('[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;$$('[data-m]').forEach(x=>x.classList.toggle('on',x===b));$('#code').focus()});
 $$('[data-t]').forEach(b=>b.onclick=()=>{$$('[data-t]').forEach(x=>x.classList.toggle('on',x===b));['an','rel','res'].forEach(id=>$('#'+id).classList.toggle('hid',id!==b.dataset.t));render()});
 
 let relSel='CONTAGEM';
@@ -321,7 +321,7 @@ $$('[data-x]').forEach(b=>b.onclick=()=>{relSel=b.dataset.x;$$('[data-x]').forEa
 
 $('#cp').onclick=()=>{
   const t=$('#tsv');t.select();
-  try{navigator.clipboard.writeText(t.value).catch(()=>document.execCommand('copy'))}catch(e){try{document.execCommand('copy')}catch(_}{}}
+  try{navigator.clipboard.writeText(t.value).catch(()=>document.execCommand('copy'))}catch(e){try{document.execCommand('copy')}catch(_){}}
   $('#cp').textContent='Copiado';setTimeout(()=>$('#cp').textContent='Copiar para planilha',1500);
 };
 
