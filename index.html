@@ -116,7 +116,7 @@ h2{font-size:17px;font-weight:700;color:var(--h);margin:0 0 10px}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // CONFIGURAÇÃO DO SUPABASE
-const SUPABASE_URL = 'https://SUA_URL_DO_SUPABASE.supabase.co'; // <--- COLOQUE SUA URL AQUI
+const SUPABASE_URL = 'https://nesmbgqsobfduvksjnbn.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_1OytOp1Lp9Zl0odZQ3jyuQ_qE90z75T';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -325,7 +325,7 @@ $('#cp').onclick = function() {
   navigator.clipboard.writeText(t.value).then(() => {
     $('#cp').textContent = 'Copiado';
     setTimeout(() => $('#cp').textContent = 'Copiar para planilha', 1500);
-  }).catch(err => {
+  }).catch(() => {
     document.execCommand('copy');
     $('#cp').textContent = 'Copiado';
     setTimeout(() => $('#cp').textContent = 'Copiar para planilha', 1500);
